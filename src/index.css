@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --forest-deep: #122E21;
+    --forest-moss: #1B3D2B;
+    --forest-dark: #0A1C13;
+    --gold-amber: #E5A952;
+    --gold-amber-light: #F3C77C;
+    --gold-amber-glow: rgba(229, 169, 82, 0.45);
+    --gold-amber-soft: rgba(229, 169, 82, 0.15);
+    --sandstone-base: #FAF7F2;
+    --sandstone-card: #F3ECE2;
+    --sandstone-accent: #EDE5D8;
+    --night-wall: #0D1510;
+    --night-wall-card: #15221B;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FAF7F2;
+    color: #122E21;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  /* Core Palette Colors */
+  .bg-forest-deep {
+    background-color: #122E21;
+  }
+  .bg-forest-moss {
+    background-color: #1B3D2B;
+  }
+  .bg-forest-dark {
+    background-color: #0A1C13;
+  }
+  .text-forest-deep {
+    color: #122E21;
+  }
+  .text-forest-moss {
+    color: #1B3D2B;
+  }
+  .border-forest-deep {
+    border-color: #122E21;
+  }
+  .border-forest-moss {
+    border-color: #1B3D2B;
+  }
+
+  .bg-sandstone-base {
+    background-color: #FAF7F2;
+  }
+  .bg-sandstone-card {
+    background-color: #F3ECE2;
+  }
+  .bg-sandstone-accent {
+    background-color: #EDE5D8;
+  }
+  .text-gold-amber {
+    color: #D8973C;
+  }
+  .text-gold-light {
+    color: #F3C77C;
+  }
+  .bg-gold-amber {
+    background-color: #E5A952;
+  }
+
+  /* Backlit LED Halo Glow Utilities */
+  .glow-amber-sm {
+    box-shadow: 0 0 15px rgba(229, 169, 82, 0.28);
+  }
+  .glow-amber-md {
+    box-shadow: 0 0 25px rgba(229, 169, 82, 0.38), 0 0 50px rgba(229, 169, 82, 0.18);
+  }
+  .glow-amber-lg {
+    box-shadow: 0 0 35px rgba(229, 169, 82, 0.5), 0 0 80px rgba(229, 169, 82, 0.25);
+  }
+  .glow-amber-sign {
+    box-shadow: 0 0 35px rgba(245, 189, 108, 0.6), 0 0 75px rgba(229, 169, 82, 0.35), inset 0 0 20px rgba(255, 230, 180, 0.25);
+  }
+  .glow-text-amber {
+    text-shadow: 0 0 12px rgba(229, 169, 82, 0.5);
+  }
+
+  /* Acrylic Sheet Glassmorphic Panel */
+  .acrylic-panel {
+    background: rgba(250, 247, 242, 0.94);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 169, 82, 0.35);
+  }
+  .acrylic-dark-panel {
+    background: rgba(13, 21, 16, 0.88);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(229, 169, 82, 0.25);
+  }
+
+  /* Standoff SS 304 Metallic Bolt Effect */
+  .standoff-bolt {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #D4D4D8 45%, #71717A 80%, #3F3F46 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(161, 161, 170, 0.6);
+  }
+}
+
+@keyframes warmPulse {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 15px rgba(229, 169, 82, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(243, 199, 124, 0.65));
+  }
+}
+
+.animate-warm-pulse {
+  animation: warmPulse 4s ease-in-out infinite;
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float-soft {
+  animation: floatSoft 5s ease-in-out infinite;
+}
+
+/* Card Fan Carousel Styles */
+.fan-layout {
+  height: 340px;
+  perspective: 1200px;
+}
+
+@media (min-width: 640px) {
+  .fan-layout {
+    height: 420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fan-layout {
+    height: 500px;
+  }
+}
+
+.fan-card {
+  position: absolute;
+  width: 180px;
+  height: 270px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(229, 169, 82, 0.25);
+  border: 1.5px solid rgba(229, 169, 82, 0.4);
+  transform-origin: center 85%;
+  cursor: pointer;
+  user-select: none;
+  background-color: #15221B;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.fan-card:hover {
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(229, 169, 82, 0.5);
+  border-color: #E5A952;
+}
+
+@media (min-width: 640px) {
+  .fan-card {
+    width: 230px;
+    height: 340px;
+    border-radius: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fan-card {
+    width: 270px;
+    height: 400px;
+    border-radius: 1.75rem;
+  }
+}
+

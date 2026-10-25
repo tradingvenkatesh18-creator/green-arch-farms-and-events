@@ -1,0 +1,6 @@
+{
+  "name": "Green Arch Farms & Events",
+  "description": "Official website for Green Arch Farms & Events - a luxurious, LGBTQ+-friendly farmstay and event venue in Shamshabad, Hyderabad.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
